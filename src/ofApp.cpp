@@ -64,7 +64,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-5 to change mode.", 10, 20);
 }
 
 //--------------------------------------------------------------
@@ -86,7 +86,10 @@ void ofApp::keyPressed(int key){
 		currentModeStr = "4 - PARTICLE_MODE_NOISE: snow particle simulation"; 						
 		resetParticles();
 	}	
-		
+	if( key == '5'){
+		currentMode = PARTICLE_MODE_FREEZE;
+		currentModeStr = "3 - PARTICLE_MODE_FREEZE: stops particle movement"; 						
+	}	
 	if( key == ' ' ){
 		resetParticles();
 	}
