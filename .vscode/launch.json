@@ -39,7 +39,7 @@
             "name": "Windows",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/PA1-ParticleSystem.exe",
+            "program": "${workspaceFolder}/bin//pa1-brogrammers_01.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
