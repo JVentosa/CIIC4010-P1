@@ -88,7 +88,7 @@ void ofApp::keyPressed(int key){
 	}	
 	if( key == '5'){
 		currentMode = PARTICLE_MODE_FREEZE;
-		currentModeStr = "3 - PARTICLE_MODE_FREEZE: stops particle movement"; 						
+		currentModeStr = "5 - PARTICLE_MODE_FREEZE: stops particle movement"; 						
 	}	
 	if( key == ' ' ){
 		resetParticles();

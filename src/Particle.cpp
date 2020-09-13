@@ -97,7 +97,7 @@ void Particle::update(){
 	}
 	else if( mode == PARTICLE_MODE_FREEZE ){
 	//freeze particle locations
-	vel=0;
+	vel= vel*0;
 	}
 
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
