@@ -95,6 +95,11 @@ void Particle::update(){
 			pos.y -= ofGetHeight();
 		}
 	}
+	else if( mode == PARTICLE_MODE_FREEZE ){
+	//freeze particle locations
+	vel= vel*0;
+	}
+
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
 		
 		if( attractPoints ){
@@ -177,7 +182,10 @@ void Particle::draw(){
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
 		ofSetColor(103, 160, 237);
 	}
-			
+	else if( mode == PARTICLE_MODE_FREEZE ){
+		ofSetColor(255, 255, 255);
+	}
+
 	ofDrawCircle(pos.x, pos.y, scale * 4.0);
 }
 
