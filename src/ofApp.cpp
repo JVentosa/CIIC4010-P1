@@ -96,9 +96,9 @@ void ofApp::keyPressed(int key){
 		//(initialize) prevMode=currentMode; //suppoused to store mode type
 		currentMode = PARTICLE_MODE_FREEZE;
 		currentModeStr = "A - PARTICLE_MODE_FREEZE: stops particle movement"; 
-		if( key == 'A'){
-			currentmode=prevMode;// suppoused to chage mode to previous mode type
-		}						
+		//if( key == 'A'){
+		//	currentmode=prevMode;// suppoused to chage mode to previous mode type
+		//}						
 	}
 	
 	if( key == ' ' ){
