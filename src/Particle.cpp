@@ -1,5 +1,5 @@
 #include "Particle.h"
-
+#include "ofApp.h"
 //------------------------------------------------------------------
 Particle::Particle(){
 	attractPoints = NULL;
@@ -97,7 +97,13 @@ void Particle::update(){
 	}
 	else if( mode == PARTICLE_MODE_FREEZE ){
 	//freeze particle locations
+	
+	//tempv=vel;
 	vel= vel*0;
+		/*void ofApp::keyPressed(int key){
+			if( key == 'A'){
+			vel=tempv;
+		}}*/
 	}
 
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){

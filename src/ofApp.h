@@ -24,6 +24,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
 		particleMode currentMode;
+		
 		string currentModeStr; 
 
 		vector <Particle> p;
