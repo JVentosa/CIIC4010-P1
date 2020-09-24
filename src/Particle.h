@@ -26,6 +26,8 @@ class Particle{
 			this->scale = i;
 		}		
 		
+			
+		
 		
 		glm::vec3 pos;
 		glm::vec3 vel;
