@@ -100,6 +100,12 @@ void ofApp::keyPressed(int key){
 			p[i].setScale(p[i].getScale() * 2); // Setter(Getter * 2); To get the rough value of Scale to multiply by 2.
 		}
 	};
+
+	if( key == 'M' || key == 'm'){
+		for(unsigned int i = 0; i < p.size(); i++){
+			p[i].setScale(p[i].getScale() / 2); //Setter(Getter / 2); To get the rough value of Scale to divide by 2.
+		}
+	}
 }
 
 //--------------------------------------------------------------
