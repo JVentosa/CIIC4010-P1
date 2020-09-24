@@ -1,5 +1,6 @@
 #include "ofApp.h"
 
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetVerticalSync(true);
@@ -64,7 +65,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode. \nKey A to toggle freeze. \nKey D to double size particles.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode. \nKey A to toggle freeze.\nKey S key to half Velocity(hold for continous effect) \nKey T key to double Velocity(hold for continous effect) \nKey D to double particle size \nKey M to halve particle size ", 10,40);
 }
 
 //--------------------------------------------------------------
@@ -95,6 +96,7 @@ void ofApp::keyPressed(int key){
 		resetParticles();
 	}
 
+
 	if( key == 'D' || key == 'd'){
 		for(unsigned int i = 0; i < p.size(); i++){
 			p[i].setScale(p[i].getScale() * 2); // Setter(Getter * 2); To get the rough value of Scale to multiply by 2.
@@ -105,6 +107,18 @@ void ofApp::keyPressed(int key){
 		for(unsigned int i = 0; i < p.size(); i++){
 			p[i].setScale(p[i].getScale() / 2); //Setter(Getter / 2); To get the rough value of Scale to divide by 2.
 		}
+	}
+
+	if( key == 'T' || key == 't'){ //double velocity 
+	for(unsigned int i = 0; i < p.size(); i++){
+			p[i].vel/=(0.5);
+	}
+
+	if( key == 'S' || key == 's'){ // half velocity 
+	for(unsigned int i = 0; i < p.size(); i++){
+			p[i].vel/=2;
+		}
+	//vel=vel*.5;
 	}
 }
 
