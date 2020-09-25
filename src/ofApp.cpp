@@ -65,7 +65,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode. \nKey A to toggle freeze.\nKey S key to half Velocity(hold for continous effect) \nKey T key to double Velocity(hold for continous effect) \nKey D to double particle size \nKey M to halve particle size ", 10,40);
+	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode. \nKey A to toggle freeze.\nKey S to halve Velocity(hold for continous effect) \nKey T to double Velocity(hold for continous effect) \nKey D to double particle size \nKey M to halve particle size ", 10,40);
 }
 
 //--------------------------------------------------------------
@@ -111,12 +111,13 @@ void ofApp::keyPressed(int key){
 
 	if( key == 'T' || key == 't'){ //double velocity 
 	for(unsigned int i = 0; i < p.size(); i++){
-			p[i].vel/=(0.5);
+			p[i].vel /= (0.5);		
+		}
 	}
 
 	if( key == 'S' || key == 's'){ // half velocity 
 	for(unsigned int i = 0; i < p.size(); i++){
-			p[i].vel/=2;
+			p[i].vel /= 2;
 		}
 	//vel=vel*.5;
 	}
