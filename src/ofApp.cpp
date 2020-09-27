@@ -1,5 +1,7 @@
 #include "ofApp.h"
+#include <vector>
 
+using namespace std;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -97,6 +99,7 @@ void ofApp::keyPressed(int key){
 	}
 
 
+
 	if( key == 'D' || key == 'd'){
 		for(unsigned int i = 0; i < p.size(); i++){
 			p[i].setScale(p[i].getScale() * 2); // Setter(Getter * 2); To get the rough value of Scale to multiply by 2.
@@ -119,8 +122,24 @@ void ofApp::keyPressed(int key){
 	for(unsigned int i = 0; i < p.size(); i++){
 			p[i].vel /= 2;
 		}
-	//vel=vel*.5;
+	//vel=vel*.5; // vector to record, used below
 	}
+	vector<char> recordV;
+	if (key == 'R'||key=='r' ){
+		currentModeStr = "recording(temp)"; 
+		//vector<char> recordV; // vector to record
+		for(unsigned int i=0; i <= recordV.size(); i++){
+			if(key == 'R'||key=='r' ){
+				break;
+			}
+			else{
+				//assing values to recording vector
+				recordV.assign(i , key);
+				
+			}
+		}
+	}
+
 }
 
 //--------------------------------------------------------------
