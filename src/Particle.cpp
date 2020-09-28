@@ -95,11 +95,6 @@ void Particle::update(){
 			pos.y -= ofGetHeight();
 		}
 	}
-	else if( mode == PARTICLE_MODE_FREEZE ){
-	
-	vel= vel*0;
-		
-	}
 
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
 		
@@ -182,9 +177,6 @@ void Particle::draw(){
 		ofSetColor(rand() % 256, rand() % 256, rand() % 256);
 	}
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
-		ofSetColor(rand() % 256, rand() % 256, rand() % 256);
-	}
-	else if( mode == PARTICLE_MODE_FREEZE ){
 		ofSetColor(rand() % 256, rand() % 256, rand() % 256);
 	}
 

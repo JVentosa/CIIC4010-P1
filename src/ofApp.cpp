@@ -36,6 +36,7 @@ void ofApp::resetParticles(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+	if (!isPaused){
 	for(unsigned int i = 0; i < p.size(); i++){
 		p[i].setMode(currentMode);
 		p[i].update();
@@ -45,6 +46,7 @@ void ofApp::update(){
 	for(unsigned int i = 0; i < attractPointsWithMovement.size(); i++){
 		attractPointsWithMovement[i].x = attractPoints[i].x + ofSignedNoise(i * 10, ofGetElapsedTimef() * 0.7) * 12.0;
 		attractPointsWithMovement[i].y = attractPoints[i].y + ofSignedNoise(i * -10, ofGetElapsedTimef() * 0.7) * 12.0;
+	}
 	}	
 }
 
@@ -72,6 +74,14 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+	if (isRecording && key != 'r' && key != 'p' && key != 'c'){
+		recordV.push_back(key);
+	}
+
+	if (isReplaying && key == 'c'){
+		isReplaying = !isReplaying;
+	}
+
 	if( key == '1'){
 		currentMode = PARTICLE_MODE_ATTRACT;
 		currentModeStr = "1 - PARTICLE_MODE_ATTRACT: attracts to mouse"; 		
@@ -90,65 +100,52 @@ void ofApp::keyPressed(int key){
 		resetParticles();
 	}
 	if( key == 'A' || key == 'a'){
-		currentMode = PARTICLE_MODE_FREEZE;
 		currentModeStr = "A - PARTICLE_MODE_FREEZE: stops particle movement"; 
+		isPaused = !isPaused;
 		}			
 
 	if( key == ' ' ){
 		resetParticles();
 	}
-
-
-
 	if( key == 'D' || key == 'd'){
 		for(unsigned int i = 0; i < p.size(); i++){
 			p[i].setScale(p[i].getScale() * 2); // Setter(Getter * 2); To get the rough value of Scale to multiply by 2.
 		}
 	};
-
 	if( key == 'M' || key == 'm'){
 		for(unsigned int i = 0; i < p.size(); i++){
 			p[i].setScale(p[i].getScale() / 2); //Setter(Getter / 2); To get the rough value of Scale to divide by 2.
 		}
 	}
-
 	if( key == 'T' || key == 't'){ //double velocity 
 	for(unsigned int i = 0; i < p.size(); i++){
 			p[i].vel /= (0.5);		
 		}
 	}
-
 	if( key == 'S' || key == 's'){ // half velocity 
 	for(unsigned int i = 0; i < p.size(); i++){
 			p[i].vel /= 2;
 		}
-	//vel=vel*.5; // vector to record, used below
+
 	}
-	vector<char> recordV;
 	if (key == 'R'||key=='r' ){
-		currentModeStr = "recording(temp)"; 
-		//vector<char> recordV; // vector to record
-		for(unsigned int i=0; i <= recordV.size(); i++){
-			if(key == 'R'||key=='r' ){
-				break;
-			}
-			else{
-				//assing values to recording vector
-				recordV.assign(i , key); //unsure if working
-				
-			}
-		}
+		isRecording = !isRecording;
+		recordV.clear();
+		currentModeStr = "IS RECORDING (temp)";
 	}
-	vector<char> playbackV (recordV);
-	if (key == 'P'||key=='p'){
-		for(unsigned int i=0; i <= playbackV.size(); i++){
-			//key=playbackV.begin();
-
-
-
-		}
+	else {
+		return; // Is this needed(?)
 	}
-	
+
+	vector<int> playbackV (recordV);
+	if (key == 'P'||key=='p'){ // SET TIMER
+			//filler
+		}
+	else{
+		playbackV.begin();
+		currentModeStr = "PLAYBACK(temp)"; 
+
+	}
 
 }
 
