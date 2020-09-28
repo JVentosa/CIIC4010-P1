@@ -134,11 +134,21 @@ void ofApp::keyPressed(int key){
 			}
 			else{
 				//assing values to recording vector
-				recordV.assign(i , key);
+				recordV.assign(i , key); //unsure if working
 				
 			}
 		}
 	}
+	vector<char> playbackV (recordV);
+	if (key == 'P'||key=='p'){
+		for(unsigned int i=0; i <= playbackV.size(); i++){
+			//key=playbackV.begin();
+
+
+
+		}
+	}
+	
 
 }
 
