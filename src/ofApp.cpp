@@ -53,6 +53,15 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofBackgroundGradient(ofColor(24,84,26), ofColor(10,10,10));
+	if(isRecording == true){
+		ofSetColor(255,0,0);
+		ofDrawCircle(ofGetWidth()-50,50,50);//make red
+	}
+	if(isReplaying == true){
+		ofSetColor(0,255,0);
+		ofDrawTriangle(ofGetWidth()-50,0,ofGetWidth(),25,ofGetWidth()-50,50);//make green
+	}
+
 
 	for(unsigned int i = 0; i < p.size(); i++){
 		p[i].draw();
