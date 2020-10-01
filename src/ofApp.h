@@ -26,6 +26,8 @@ class ofApp : public ofBaseApp{
 		bool isRecording;
 		bool isReplaying;
 		bool isPaused;
+		int time;
+		unsigned int keypress = 0;
 
 		
 		particleMode currentMode;
