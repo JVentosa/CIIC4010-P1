@@ -64,7 +64,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-5 to change mode.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode. \nKey A to toggle freeze. \nKey D to double size particles.", 10, 20);
 }
 
 //--------------------------------------------------------------
@@ -85,14 +85,21 @@ void ofApp::keyPressed(int key){
 		currentMode = PARTICLE_MODE_NOISE;
 		currentModeStr = "4 - PARTICLE_MODE_NOISE: snow particle simulation"; 						
 		resetParticles();
-	}	
-	if( key == '5'){
+	}
+	if( key == 'A' || key == 'a'){
 		currentMode = PARTICLE_MODE_FREEZE;
-		currentModeStr = "5 - PARTICLE_MODE_FREEZE: stops particle movement"; 						
-	}	
+		currentModeStr = "A - PARTICLE_MODE_FREEZE: stops particle movement"; 
+		}			
+
 	if( key == ' ' ){
 		resetParticles();
 	}
+
+	if( key == 'D' || key == 'd'){
+		for(unsigned int i = 0; i < p.size(); i++){
+			p[i].setScale(p[i].getScale() * 2); // Setter(Getter * 2); To get the rough value of Scale to multiply by 2.
+		}
+	};
 }
 
 //--------------------------------------------------------------
